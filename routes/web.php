@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('posts', [PostController::class, 'index'] );
+Route::get('posts/{post}', [PostController::class, 'show'] )->name('posts.show');
+Route::post('add-comment', [PostController::class, 'commentStore'] )->name('add-comment');
+
+Route::get('comments', [PostController::class, 'comments'] );

@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Posts</title>
+    <title>Comments</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5 pt-5">
-        <h1>Posts</h1>
+        <h1>Comments</h1>
         <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Content</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($posts as $post)
+                @forelse ($comments as $comment)
                     <tr>
-                        <td>{{ $post->id }}</td>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->content }}</td>
-                        <td><a href="{{ route('posts.show', ['post' => $post->id]) }}">Show Post</a></td>
+                        <td>{{ $comment->id }}</td>
+                        <td>{{ $comment->title }}</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3">No posts found.</td>
+                        <td colspan="3">No comments found.</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
         <div class="mt-5">
-            {{ $posts->links() }}
+            {{ $comments->links() }}
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
